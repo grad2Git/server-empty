@@ -4,15 +4,17 @@ import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 
 void main() async {
   final overrideHeaders = {
+    ACCESS_CONTROL_ALLOW_ORIGIN: '*',
+    ACCESS_CONTROL_ALLOW_CREDENTIALS: 'true',
+    ACCESS_CONTROL_EXPOSE_HEADERS: "['*']",
     'Content-Type': 'application/json;charset=utf-8'
   };
-  final listChecker = originOneOf(['https://grad2git-server-empty-ce64.twc1.net']);
   var handler = const Pipeline()
-      .addMiddleware(corsHeaders(headers: overrideHeaders, originChecker: listChecker))
+      .addMiddleware(corsHeaders(headers: overrideHeaders))
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
-  var server = await shelf_io.serve(handler, '0.0.0.0', 8080);
+  var server = await shelf_io.serve(handler, '0.0.0.0', 8000);
 
   server.autoCompress = true;
 }
