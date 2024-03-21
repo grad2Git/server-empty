@@ -4,11 +4,11 @@ import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 
 void main() async {
   final overrideHeaders = {
-    ACCESS_CONTROL_ALLOW_ORIGIN: 'grad2git-server-empty-ce64.twc1.net',
     'Content-Type': 'application/json;charset=utf-8'
   };
+  final listChecker = originOneOf(['https://grad2git-server-empty-ce64.twc1.net']);
   var handler = const Pipeline()
-      .addMiddleware(corsHeaders(headers: overrideHeaders))
+      .addMiddleware(corsHeaders(headers: overrideHeaders, originChecker: listChecker))
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
