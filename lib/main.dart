@@ -10,7 +10,7 @@ void main() async {
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
-  var server = await shelf_io.serve(handler, '0.0.0.0', 8080);
+  var server = await shelf_io.serve(handler, '0.0.0.0', 443);
 
   server.autoCompress = true;
 }
