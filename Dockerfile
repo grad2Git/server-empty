@@ -26,5 +26,5 @@ COPY --from=build /app /app/
 COPY --from=build /root /app/
 
 # Start server.
-EXPOSE 443
+EXPOSE 8080
 CMD ["/app/lib/server"]

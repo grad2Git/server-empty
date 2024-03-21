@@ -5,12 +5,21 @@ import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 void main() async {
 
 
+  const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': '*',
+  };
+  Response? _options(Request request) => (request.method == 'OPTIONS') ? Response.ok(null, headers: corsHeaders) : null;
+  Response _cors(Response response) => response.change(headers: corsHeaders);
+  final _fixCORS = createMiddleware(requestHandler: _options, responseHandler: _cors);
+
   var handler = const Pipeline()
-      .addMiddleware(corsHeaders())
+      .addMiddleware(_fixCORS)
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
-  var server = await shelf_io.serve(handler, '0.0.0.0', 443);
+  var server = await shelf_io.serve(handler, '0.0.0.0', 8080);
 
   server.autoCompress = true;
 }
