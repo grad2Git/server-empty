@@ -3,14 +3,10 @@ import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 
 void main() async {
-  final overrideHeaders = {
-    ACCESS_CONTROL_ALLOW_ORIGIN: '*',
-    ACCESS_CONTROL_ALLOW_CREDENTIALS: 'true',
-    ACCESS_CONTROL_EXPOSE_HEADERS: "['*']",
-    'Content-Type': 'application/json;charset=utf-8'
-  };
+
+
   var handler = const Pipeline()
-      .addMiddleware(corsHeaders(headers: overrideHeaders))
+      .addMiddleware(corsHeaders())
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
