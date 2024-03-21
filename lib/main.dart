@@ -4,7 +4,7 @@ import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 
 void main() async {
   final overrideHeaders = {
-    ACCESS_CONTROL_ALLOW_ORIGIN: '*',
+    ACCESS_CONTROL_ALLOW_ORIGIN: 'grad2git-server-empty-ce64.twc1.net',
     'Content-Type': 'application/json;charset=utf-8'
   };
   var handler = const Pipeline()
