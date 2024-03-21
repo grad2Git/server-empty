@@ -14,7 +14,7 @@ void main() async {
       .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
-  var server = await shelf_io.serve(handler, '0.0.0.0', 8000);
+  var server = await shelf_io.serve(handler, '0.0.0.0', 8080);
 
   server.autoCompress = true;
 }
