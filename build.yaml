@@ -1,0 +1,37 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: en
+          fallback_strategy: base_locale
+          input_directory: lib/i18n
+          input_file_pattern: .i18n.yaml
+          output_directory: lib/i18n
+          output_file_name: localization.g.dart
+          output_format: single_file
+          locale_handling: true
+          flutter_integration: false
+          namespaces: false
+          translate_var: t
+          enum_name: AppLocale
+          class_name: AppLocalizations
+          translation_class_visibility: private
+          param_case: pascal
+          string_interpolation: double_braces
+          flat_map: false
+          translation_overrides: false
+          timestamp: true
+          statistics: true
+          interfaces:
+            PageData: onboarding.pages.*
+            PageData2:
+              paths:
+                - my.path
+                - cool.pages.*
+              attributes:
+                - String title
+                - String? content
+          obfuscation:
+            enabled: false
+            secret: somekey
