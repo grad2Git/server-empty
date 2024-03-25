@@ -1,6 +1,3 @@
-# Deployed
-.env
-
 # Miscellaneous
 *.class
 *.log
@@ -47,6 +44,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Custom ignore
-.vscode/settings.json
