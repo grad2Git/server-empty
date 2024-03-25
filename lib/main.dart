@@ -8,7 +8,7 @@ void main() async {
       .addHandler(_echoRequest);
 
 
-  var server = await serve(handler, '0.0.0.0', 8080);
+  var server = await serve(handler, '0.0.0.0', Platform.environment['PORT'] ?? 8080);
 
   server.autoCompress = false;
 }
