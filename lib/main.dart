@@ -9,7 +9,7 @@ void main() async {
 
   var server = await serve(handler, '0.0.0.0', 443);
 
-  server.autoCompress = true;
+  server.autoCompress = false;
 }
 
 Future<Response> _echoRequest(Request request) async => Response.ok(
