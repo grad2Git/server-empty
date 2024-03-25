@@ -25,4 +25,3 @@ dependencies:
   shelf_cors_headers: ^0.1.5
 
 dev_dependencies:
-  lints: ^1.0.0
