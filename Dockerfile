@@ -26,5 +26,5 @@ COPY --from=build /app /app/
 COPY --from=build /root /app/
 
 # Start server.
-EXPOSE 8000
+EXPOSE 80
 CMD ["/app/lib/server"]
