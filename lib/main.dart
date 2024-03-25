@@ -13,6 +13,7 @@ void main() async {
   var server = await serve(handler, ip, port);
 
   server.autoCompress = false;
+
 }
 
 Future<Response> _echoRequest(Request request) async => Response.ok(
