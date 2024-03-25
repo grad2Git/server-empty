@@ -3,7 +3,6 @@ import 'package:shelf/shelf_io.dart';
 
 void main() async {
   var handler = const Pipeline()
-      .addMiddleware(logRequests())
       .addHandler(_echoRequest);
 
 
