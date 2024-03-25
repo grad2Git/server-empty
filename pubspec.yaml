@@ -21,6 +21,6 @@ environment:
   sdk: ">=2.0.0 <3.0.0"
 
 dependencies:
-  shelf: 1.1.0
+  shelf: 0.7.9
 
 dev_dependencies:
